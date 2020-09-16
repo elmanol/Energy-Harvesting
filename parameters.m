@@ -1,0 +1,22 @@
+%field dimensions
+length = 500;
+height = 500;
+
+%number of sensors
+number_of_sensors = 10;
+
+%set sensors coordinates
+x = [2, 4, 5, 7, 8, 3, 5, 7, 8, 9];
+y = [3, 4, 9, 2, 1, 6, 5, 7, 8, 9];
+
+%initial battery
+initial_battery = 100;
+
+%transmission range
+transmission_range = 150;
+
+%link cost per bit
+link_cost = 10*10^-6;
+
+%Packet size in bytes
+packet_size = 512;
