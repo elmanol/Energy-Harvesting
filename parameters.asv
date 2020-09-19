@@ -21,8 +21,5 @@ link_cost = 10*10^-6;
 %Packet size in bytes
 packet_size = 512;
 
-%transmit_rate in bytes per second
-transmit_rate = 250000;
-
-%message transmit time
-transmit_time = packet_size/transmit_rate;
+%transmit_rate
+transmit_re
