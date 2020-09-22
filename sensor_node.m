@@ -1,4 +1,5 @@
 classdef sensor_node < handle
+   %class containing all the variables and methods needed for the sensors nodes 
    properties
       battery_level = 0;
       x;
@@ -32,13 +33,19 @@ classdef sensor_node < handle
       end
      
       %receive message
-      function obj = receive_message(obj,message)
+      function obj = receive_message(obj,message, message_reception_cost)
          obj.current_messages = [obj.current_messages message];
+         decrease_battery(obj, message_reception_cost);
       end
       
       %send message
-      function obj = send_message(obj)
+      function obj = send_message(obj, receiver, message,...
+              message_transmission_cost, message_reception_cost)
+          
           obj.current_messages = obj.current_messages(1:end-1);
+          decrease_battery(obj, message_transmission_cost);
+          receive_message(receiver,message, message_reception_cost);
+          
       end
    end
 end

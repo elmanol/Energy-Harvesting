@@ -15,8 +15,11 @@ initial_battery = 100;
 %transmission range
 transmission_range = 2;
 
-%link cost per bit
-link_cost = 10*10^-6;
+%message transmission cost
+message_transmission_cost = 10*10^-6;
+
+%message reception cost
+message_reception_cost = 10*10^-6;
 
 %Packet size in bytes
 packet_size = 512;
@@ -26,3 +29,4 @@ transmit_rate = 250000;
 
 %message transmit time
 transmit_time = packet_size/transmit_rate;
+
