@@ -30,9 +30,6 @@ transmit_rate = 250000;
 %message transmit time
 transmit_time = packet_size/transmit_rate;
 
-%execution time steps
-execution_time = 3600;
-
-%time step
-timestep = 1;
+%
+execution_time
 

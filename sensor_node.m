@@ -28,14 +28,14 @@ classdef sensor_node < handle
       end
       
       %set battery level
-      function obj = decrease_battery(obj, energy)
-         obj.battery_level = obj.battery_level - energy;
+      function obj = adjust_battery(obj, energy)
+         obj.battery_level = obj.battery_level + energy;
       end
      
       %receive message
       function obj = receive_message(obj,message, message_reception_cost)
          obj.current_messages = [obj.current_messages message];
-         decrease_battery(obj, message_reception_cost);
+         adjust_battery(obj, -message_reception_cost);
       end
       
       %send message
@@ -43,7 +43,7 @@ classdef sensor_node < handle
               message_transmission_cost, message_reception_cost)
           
           obj.current_messages = obj.current_messages(1:end-1);
-          decrease_battery(obj, message_transmission_cost);
+          adjust_battery(obj, -message_transmission_cost);
           receive_message(receiver,message, message_reception_cost);
           
       end
