@@ -23,9 +23,9 @@ send_message(node(i), node(i-1), "123", message_transmission_cost, message_recep
 %figure of the nodes positions
 %f1 = figure;
 %plot(x,y,"*");
-
+irradiance_vector = irradiance_function(irradiance_type, execution_time);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %main loop
 for i=1:timestep:execution_time
-	node(i)
+	
 end

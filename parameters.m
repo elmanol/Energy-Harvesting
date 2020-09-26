@@ -36,3 +36,5 @@ execution_time = 3600;
 %time step
 timestep = 1;
 
+%irradiance type
+irradiance_type = "normal"
