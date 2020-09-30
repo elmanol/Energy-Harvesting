@@ -37,4 +37,4 @@ execution_time = 3600;
 timestep = 1;
 
 %irradiance type
-irradiance_type = "normal"
+irradiance_type = "normal";
