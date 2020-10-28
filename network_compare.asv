@@ -18,16 +18,16 @@ net1 = network_init(P(1).('x'), P(1).('y'), P(1).('sink_x'), P(1).('sink_y'));
 net2 = network_init(P(1).('x'), P(1).('y'), P(1).('sink_x'), P(1).('sink_y'));
 
 %create energy objects
-en1 = energy(GP.('initial_battery'), GP.('message_reception_cost'), GP.('message_transmission_cost'), P(1).('irradiance_type'), GP.('execution_time'));
-en2 = energy(GP.('initial_battery'), GP.('message_reception_cost'), GP.('message_transmission_cost'), P(2).('irradiance_type'), GP.('execution_time'));
+en1 = energy(initial_battery, message_reception_cost, message_transmission_cost, irradiance_type_1, execution_time);
+en2 = energy(initial_battery, message_reception_cost, message_transmission_cost, irradiance_type_2, execution_time);
 
 %setup 
-for i=1:P(1).('number_of_sensors')
-    node1(i) = sensor_node(en1, net1, i, GP.('transmission_range')); 
+for i=1:number_of_sensors_1
+    node1(i) = sensor_node(en1, net1, i, transmission_range); 
 end
 
-for i=1:P(2).('number_of_sensors')
-    node2(i) = sensor_node(en2, net2, i, GP.('transmission_range')); 
+for i=1:number_of_sensors_2
+    node2(i) = sensor_node(en2, net2, i, transmission_range); 
 end
 
 

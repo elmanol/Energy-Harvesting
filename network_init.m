@@ -8,10 +8,11 @@ classdef network_init < handle
     end
     
     methods
-        function obj = network_init(x,y)
+        function obj = network_init(x, y, sink_x, sink_y)
             %constructor
             obj.x = x;
             obj.y = y;
+            set_sink(obj, sink_x, sink_y);
         end
         
         function obj = set_sink(obj, sink_x, sink_y)
