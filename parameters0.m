@@ -94,6 +94,8 @@ P(2).('irradiance_type') = "normal";
 %%%%%%%%%%%% Sysytem parameters  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%initial battery
+GP.('simulation_time') = 100;
 
 %initial battery
 GP.('initial_battery') = 100;

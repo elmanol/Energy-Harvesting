@@ -30,4 +30,6 @@ for i=1:P(2).('number_of_sensors')
     node2(i) = sensor_node(en2, net2, i, GP.('transmission_range')); 
 end
 
-
+for i=1:number_of_networks
+   routing(net1, node1, en1);
+end

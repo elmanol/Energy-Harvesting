@@ -16,7 +16,7 @@ function [] = routing(network, nodes, energy)
                     
                     neighbour = nodes(node_neighbours(j));
                     if (neighbour.distance_to_sink < current_node.distance_to_sink)
-                        current_node.send_message(neighbour, "message", energy);
+                        current_node.send_message(current_node, neighbour, "message", energy);
                     end
                 end
             end
