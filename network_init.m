@@ -1,10 +1,10 @@
 classdef network_init < handle
    %class containing all the variables and methods needed for the network
     properties
-        %set sensors coordinates
         x;
         y;
-        sink = randi([1,10],1);
+        sink_x;
+        sink_y;
     end
     
     methods
@@ -14,6 +14,10 @@ classdef network_init < handle
             obj.y = y;
         end
         
+        function obj = set_sink(obj, sink_x, sink_y)
+            obj.sink_x = sink_x;
+            obj.sink_y = sink_y;
+        end
     end
 end
 

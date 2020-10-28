@@ -7,15 +7,18 @@ classdef sensor_node < handle
       transmission_range;
       neighbours;
       current_messages;
+      distance_to_sink;
    end
    methods
       %constructor
-      function obj = sensor_node(initial_battery,x,y,i,transmission_range)
-         obj.battery_level = initial_battery;
-         obj.x = x(i);
-         obj.y = y(i);
+      function obj = sensor_node(en, network, i, transmission_range)
+         obj.battery_level = en.initial_battery;
+         obj.x = network.x(i);
+         obj.y = network.y(i);
          obj.transmission_range = transmission_range;
-         neighbour_finder(obj,x,y,i);
+         obj.distance_to_sink = norm([network.sink_x network.sink_y]-...
+         [network.x(i) network.x(i)]);
+         neighbour_finder(obj, network.x, network.y, i);
       end
       
       %find neighbours
@@ -39,12 +42,11 @@ classdef sensor_node < handle
       end
       
       %send message
-      function obj = send_message(obj, receiver, message,...
-              message_transmission_cost, message_reception_cost)
+      function obj = send_message(obj, receiver, message, en)
           
           obj.current_messages = obj.current_messages(1:end-1);
-          adjust_battery(obj, -message_transmission_cost);
-          receive_message(receiver,message, message_reception_cost);
+          adjust_battery(obj, -en.message_transmission_cost);
+          receive_message(receiver,message, en.message_reception_cost);
           
       end
    end

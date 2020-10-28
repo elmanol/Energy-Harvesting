@@ -9,6 +9,10 @@ number_of_sensors = 10;
 x = [2, 4, 5, 7, 8, 3, 5, 7, 8, 9];
 y = [3, 4, 9, 2, 1, 6, 5, 7, 8, 9];
 
+%sink position
+sink_x = 10;
+sink_y = 10;
+
 %initial battery
 initial_battery = 100;
 
@@ -26,6 +30,9 @@ packet_size = 512;
 
 %transmit_rate in bytes per second
 transmit_rate = 250000;
+
+%events/sec
+event_rate = 0.025;
 
 %message transmit time
 transmit_time = packet_size/transmit_rate;
