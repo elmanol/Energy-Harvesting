@@ -32,4 +32,5 @@ end
 
 for i=1:number_of_networks
    routing(net1, node1, en1);
+   routing(net2, node2, en2);
 end

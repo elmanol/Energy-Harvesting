@@ -8,7 +8,12 @@ classdef sensor_node < handle
       neighbours;
       current_messages;
       distance_to_sink;
-      event_buffer = 0;
+      events_generated = 0;
+      events_sent_to = [];
+      events_sent = 0;
+      messages_sent = 0;
+      messages_received = 0;
+
    end
    methods
       %constructor
@@ -44,12 +49,17 @@ classdef sensor_node < handle
          
       end
      
+      function obj = generate_event(obj,message)
+          obj.current_messages = [obj.current_messages message];
+          obj.events_generated = obj.events_generated + 1;
+      end
+      
       %receive message
       function obj = receive_message(obj,message, message_reception_cost)
           
          obj.current_messages = [obj.current_messages message];
          adjust_battery(obj, -message_reception_cost);
-         
+         obj.messages_received = obj.messages_received + 1;
       end
       
       %send message
@@ -61,11 +71,16 @@ classdef sensor_node < handle
           
       end
       
-      %get event
-      function obj = modify_event(obj, event)
+      %log sent event
+      function obj = modify_events_sent(obj, receiver)
           
-          obj.event_buffer = obj.event_buffer + event;
+          obj.events_sent_to = [obj.events_sent_to; receiver];
+          obj.events_sent = obj.events_sent + 1;
           
+      end
+      
+      function obj = modify_messages_sent(obj)
+          obj.messages_sent = obj.messages_sent+1;
       end
    end
 end
