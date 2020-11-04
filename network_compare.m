@@ -12,10 +12,10 @@ number_of_networks = 2;
 parameters0;
 
 %create first network
-net1 = network_init(P(1).('x'), P(1).('y'), P(1).('sink_x'), P(1).('sink_y'));
+net1 = network_init(P(1).('x'), P(1).('y'), P(1).('sink_x'), P(1).('sink_y'), 1);
 
 %create second network
-net2 = network_init(P(1).('x'), P(1).('y'), P(1).('sink_x'), P(1).('sink_y'));
+net2 = network_init(P(1).('x'), P(1).('y'), P(1).('sink_x'), P(1).('sink_y'), 2);
 
 %create energy objects
 en1 = energy(GP.('initial_battery'), GP.('message_reception_cost'), GP.('message_transmission_cost'), P(1).('irradiance_type'), GP.('execution_time'));

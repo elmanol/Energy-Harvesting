@@ -3,7 +3,7 @@ function [] = routing(network, nodes, energy)
     parameters0;
     for timestep = 1:GP.('execution_time')
         
-        energy.receive_energy(nodes,timestep,P(network.number));
+        receive_energy(nodes,energy,timestep);
         generate_send_or_propagate(nodes,energy,network);
         
     end

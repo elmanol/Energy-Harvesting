@@ -1,4 +1,4 @@
-classdef energy
+classdef energy < handle
     %class for everything that has to do with energy
     
     properties
@@ -24,6 +24,19 @@ classdef energy
                 obj.irradiance_vector = abs(normrnd(mu,sigma,1,execution_time));
             end
         end
+        
+        
+        function receive_energy(obj, sensors, timestep, P_network)
+            timestep_energy_income = obj.irradiance_vector(timestep);
+            
+            for i=1:length(sensors)
+                if P_network.('eh_sensors')(i)
+                    sensor = sensors(i);
+                    sensor.adjust_battery(timestep_energy_income);
+                end
+            end
+        end
+        
     end
 end
 
