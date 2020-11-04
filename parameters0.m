@@ -92,10 +92,7 @@ P(2).('irradiance_type') = "normal";
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%% Sysytem parameters  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%initial battery
-GP.('simulation_time') = 100;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %initial battery
 GP.('initial_battery') = 100;
@@ -104,10 +101,10 @@ GP.('initial_battery') = 100;
 GP.('transmission_range') = 4;
 
 %message transmission cost
-GP.('message_transmission_cost') = 1;%10*10^-6;
+GP.('message_transmission_cost') = 0.5;%10*10^-6;
 
 %message reception cost
-GP.('message_reception_cost') = 1;%10*10^-6;
+GP.('message_reception_cost') = 0.25;%10*10^-6;
 
 %Packet size in bytes
 GP.('packet_size') = 512;
@@ -122,7 +119,7 @@ GP.('event_rate') = 0.025;
 GP.('transmit_time') = GP.('packet_size')/GP.('transmit_rate');
 
 %execution time steps
-GP.('execution_time') = 3600;
+GP.('execution_time') = 400; %400 seconds
 
 %time step
 GP.('timestep') = 1;

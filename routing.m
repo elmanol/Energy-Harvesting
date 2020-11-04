@@ -1,7 +1,7 @@
 function [] = routing(network, nodes, energy)
     
     parameters0;
-    for timestemp = 1:GP.('simulation_time') 
+    for timestemp = 1:GP.('execution_time')
         
         generate_send_or_propagate(nodes,energy,network);
         

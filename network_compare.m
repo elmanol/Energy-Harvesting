@@ -34,3 +34,6 @@ for i=1:number_of_networks
    routing(net1, node1, en1);
    routing(net2, node2, en2);
 end
+net_residual_energy=[];
+net_residual_energy(1) = sum([node1.battery_level]);
+net_residual_energy(2) = sum([node2.battery_level]);
